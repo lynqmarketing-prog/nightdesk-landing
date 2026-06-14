@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nightdesk - Revenue Intelligence for Independent Hotels</title>
+  <meta name="description" content="Your first revenue intelligence system. No PMS required. No black box. Every morning by 7am.">
+  <meta property="og:title" content="Nightdesk - Revenue Intelligence for Independent Hotels">
+  <meta property="og:description" content="Your first revenue intelligence system. No PMS required. No black box.">
+  <meta property="og:url" content="https://nightdesk.cc">
+  <meta name="theme-color" content="#0B1E33">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0B1E33;
+      --navy-card: #0F2744;
+      --navy-mid: #16304D;
+      --blue: #2A7FFF;
+      --blue-dark: #1a6fe8;
+      --green: #4ADE80;
+      --text-1: #FFFFFF;
+      --text-2: rgba(255,255,255,0.65);
+      --text-3: rgba(255,255,255,0.35);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--navy);
+      color: var(--text-1);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 40px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(11,30,51,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+    }
+
+    .wordmark {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--text-1);
+    }
+
+    .wordmark em { font-style: normal; color: var(--blue); }
+
+    .nav-link {
+      font-size: 13px;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-link:hover { color: var(--text-2); }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 56px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px 56px 64px 80px;
+    }
+
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 80px 64px 40px;
+      background: linear-gradient(135deg, rgba(42,127,255,0.04) 0%, transparent 60%);
+      border-left: 0.5px solid var(--border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(42,127,255,0.08);
+      border: 0.5px solid rgba(42,127,255,0.25);
+      border-radius: 20px;
+      padding: 4px 13px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #6AADFF;
+      width: fit-content;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+      animation: fadeUp 0.5s ease 0.1s both;
+    }
+
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    h1 {
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      color: var(--text-1);
+      margin-bottom: 12px;
+      animation: fadeUp 0.5s ease 0.2s both;
+    }
+
+    .subhead {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--blue);
+      margin-bottom: 28px;
+      animation: fadeUp 0.5s ease 0.3s both;
+    }
+
+    .hero-body {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 400px;
+      animation: fadeUp 0.5s ease 0.4s both;
+    }
+
+    .form-wrap { animation: fadeUp 0.5s ease 0.5s both; }
+
+    .form-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-3);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .price-note {
+      font-size: 12px;
+      color: var(--text-3);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .price-note strong {
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    input[type="email"] {
+      flex: 1;
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--text-1);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input[type="email"]::placeholder { color: rgba(255,255,255,0.2); }
+    input[type="email"]:focus { border-color: rgba(42,127,255,0.4); }
+
+    .btn-submit {
+      background: var(--blue);
+      color: var(--text-1);
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-submit:hover { background: var(--blue-dark); }
+    .btn-submit:active { transform: scale(0.98); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 14px;
+      cursor: pointer;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--blue);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checkbox-label {
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.4;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .checkbox-label strong {
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    .small-print {
+      font-size: 11px;
+      color: var(--text-3);
+      line-height: 1.6;
+    }
+
+    .success-state {
+      display: none;
+      padding: 18px 20px;
+      background: rgba(74,222,128,0.06);
+      border: 0.5px solid rgba(74,222,128,0.2);
+      border-radius: 8px;
+    }
+
+    .success-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .success-sub {
+      font-size: 12px;
+      color: var(--text-3);
+    }
+
+    .email-mock {
+      width: 100%;
+      max-width: 400px;
+      background: var(--navy-card);
+      border-radius: 12px;
+      border: 0.5px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.04);
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .mock-header {
+      padding: 14px 18px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .mock-meta { display: flex; flex-direction: column; gap: 3px; }
+    .mock-from { font-size: 11px; font-weight: 500; color: var(--blue); }
+    .mock-subject { font-size: 11px; color: var(--text-3); }
+    .mock-time { font-size: 11px; color: var(--text-3); white-space: nowrap; font-weight: 500; }
+
+    .mock-property {
+      padding: 12px 18px 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-2);
+      border-bottom: 0.5px solid rgba(255,255,255,0.04);
+    }
+
+    .mock-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 9px 18px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.04);
+    }
+
+    .mock-row:last-of-type { border-bottom: none; }
+    .mock-label { font-size: 12px; color: var(--text-3); }
+
+    .mock-val {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-1);
+      font-variant-numeric: tabular-nums;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .mock-up { font-size: 10px; color: var(--green); font-weight: 400; }
+    .mock-rate { color: var(--blue); }
+
+    .mock-action {
+      margin: 0 18px 14px;
+      padding: 10px 14px;
+      background: rgba(42,127,255,0.08);
+      border: 0.5px solid rgba(42,127,255,0.2);
+      border-radius: 6px;
+    }
+
+    .mock-action-label {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .mock-action-text { font-size: 11px; color: var(--text-2); line-height: 1.5; }
+
+    .mock-footer {
+      padding: 10px 18px;
+      border-top: 0.5px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mock-footer-left { font-size: 10px; color: var(--text-3); }
+    .mock-footer-link { font-size: 10px; color: var(--blue); text-decoration: none; }
+
+    .stats-strip {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat {
+      padding: 28px 0;
+      text-align: center;
+      border-right: 0.5px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-1);
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+
+    .stat-value span { color: var(--blue); }
+    .stat-label { font-size: 12px; color: var(--text-3); }
+
+    .below-fold {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 72px 40px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .founder-line {
+      font-size: 14px;
+      font-style: italic;
+      color: var(--text-3);
+      padding-left: 16px;
+      border-left: 2px solid rgba(42,127,255,0.3);
+    }
+
+    .icp-text { font-size: 14px; color: var(--text-3); line-height: 1.75; }
+
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left { font-size: 11px; color: var(--text-3); }
+
+    .footer-right { display: flex; gap: 20px; }
+
+    .footer-right a {
+      font-size: 11px;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-right a:hover { color: var(--text-2); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 48px 24px 32px; order: 1; }
+      .hero-right { padding: 0 24px 48px; border-left: none; border-top: 0.5px solid var(--border); order: 2; background: none; }
+      h1 { font-size: 32px; letter-spacing: -1px; }
+      .input-row { flex-direction: column; }
+      .btn-submit { width: 100%; padding: 13px; }
+      .stats-strip { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 0.5px solid var(--border); padding: 20px 0; }
+      .stat:last-child { border-bottom: none; }
+      .below-fold { padding: 48px 24px 60px; }
+      footer { flex-direction: column; gap: 12px; padding: 20px 24px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="11" fill="#0B1E33" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <clipPath id="moonClip">
+          <circle cx="12" cy="12" r="7.5"/>
+        </clipPath>
+        <circle cx="12" cy="12" r="7.5" fill="rgba(255,255,255,0.15)" clip-path="url(#moonClip)"/>
+        <circle cx="15.5" cy="10" r="6" fill="#0B1E33" clip-path="url(#moonClip)"/>
+        <circle cx="19.5" cy="18" r="2" fill="#2A7FFF"/>
+      </svg>
+      <span class="wordmark">night<em>desk</em></span>
+    </a>
+    <a href="https://app.nightdesk.cc/sign-in" class="nav-link">Sign in</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+
+      <div class="badge">
+        <div class="badge-dot"></div>
+        Founding group - 50 spots
+      </div>
+
+      <h1>Your first revenue intelligence system.</h1>
+
+      <p class="subhead">No PMS required. No black box.</p>
+
+      <p class="hero-body">
+        Revenue management software was built for hotels with revenue managers.
+        You don't have one. Nightdesk is the layer underneath - every morning
+        by 7am, what last night did, what to price today, and what's coming
+        next week. You decide. We make sure you're not deciding blind.
+      </p>
+
+      <div class="form-wrap">
+        <p class="form-label">Get early access</p>
+        <p class="price-note"><strong>$49/month for your first 6 months.</strong> Then $89.99/month - full access to every feature we ship.</p>
+
+        <div id="form-container">
+          <div class="input-row">
+            <input
+              type="email"
+              id="email-input"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            />
+            <button type="button" class="btn-submit" id="submit-btn" onclick="handleSubmit()">
+              Join the founding group
+            </button>
+          </div>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="newsletter-check">
+            <span class="checkbox-label">
+              Also subscribe to <strong>The Night Shift</strong> - biweekly hospitality news
+            </span>
+          </label>
+
+          <p class="small-print">
+            50 founding spots. No credit card to reserve yours.<br>
+            You will get a personal email from me within 24 hours.
+          </p>
+        </div>
+
+        <div class="success-state" id="success-state">
+          <p class="success-title">You're on the list.</p>
+          <p class="success-sub">You'll get a personal email from me within 24 hours.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-right">
+      <div class="email-mock">
+        <div class="mock-header">
+          <div class="mock-meta">
+            <span class="mock-from">brief@nightdesk.cc</span>
+            <span class="mock-subject">Your Morning Report - The Harbor Inn</span>
+          </div>
+          <span class="mock-time">7:04 AM</span>
+        </div>
+
+        <div class="mock-property">The Harbor Inn - Wednesday</div>
+
+        <div class="mock-row">
+          <span class="mock-label">Last night occupancy</span>
+          <span class="mock-val">84% <span class="mock-up">+11pts vs last year</span></span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">Average daily rate</span>
+          <span class="mock-val">$168 <span class="mock-up">+$14 vs 30-day avg</span></span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">RevPAR</span>
+          <span class="mock-val">$141 <span class="mock-up">+18% vs last year</span></span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">Bookings last 24h</span>
+          <span class="mock-val">8 rooms</span>
+        </div>
+        <div class="mock-row">
+          <span class="mock-label">Friday suggested rate</span>
+          <span class="mock-val mock-rate">$189 &nearr;</span>
+        </div>
+
+        <div class="mock-action">
+          <div class="mock-action-label">Today's action</div>
+          <div class="mock-action-text">
+            4 rooms left for Friday. Demand tracking above your historical average.
+            Consider raising to $189 before noon.
+          </div>
+        </div>
+
+        <div class="mock-footer">
+          <span class="mock-footer-left">Generated from your data - delivered at 7am</span>
+          <a href="#" class="mock-footer-link">View dashboard</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-strip">
+    <div class="stat">
+      <div class="stat-value">7<span>am</span></div>
+      <div class="stat-label">Morning report delivered daily</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">90</div>
+      <div class="stat-label">Day revenue forecast horizon</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">$<span>49</span></div>
+      <div class="stat-label">First 6 months. $89.99/month after.</div>
+    </div>
+  </div>
+
+  <div class="below-fold">
+    <p class="founder-line">
+      Built by a former night auditor who got tired of flying blind.
+    </p>
+    <p class="icp-text">
+      Built for independent hotels, motels, and short-term rental operators
+      who are done guessing but aren't ready to hand pricing over to a black box.
+    </p>
+  </div>
+
+  <footer>
+    <span class="footer-left">2026 Nightdesk</span>
+    <div class="footer-right">
+      <a href="https://app.nightdesk.cc/terms">Terms</a>
+      <a href="https://app.nightdesk.cc/privacy">Privacy</a>
+      <a href="mailto:support@nightdesk.cc">Support</a>
+    </div>
+  </footer>
+
+  <script>
+    async function handleSubmit() {
+      const email = document.getElementById('email-input').value.trim();
+      const newsletter = document.getElementById('newsletter-check').checked;
+      const btn = document.getElementById('submit-btn');
+
+      if (!email || !email.includes('@')) {
+        document.getElementById('email-input').focus();
+        return;
+      }
+
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('https://app.nightdesk.cc/api/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, newsletter })
+        });
+
+        if (res.ok || res.status === 409) {
+          document.getElementById('form-container').style.display = 'none';
+          document.querySelector('.form-label').style.display = 'none';
+          document.querySelector('.price-note').style.display = 'none';
+          document.getElementById('success-state').style.display = 'block';
+        } else {
+          btn.textContent = 'Join the founding group';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Join the founding group';
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById('email-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') handleSubmit();
+    });
+  </script>
+
+</body>
+</html>
