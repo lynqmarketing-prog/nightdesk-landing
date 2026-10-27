@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NightDesk RIS: revenue intelligence for independent hotels</title>
-  <meta name="description" content="NightDesk RIS: revenue intelligence system for independent hotels. A morning revenue brief: what happened, what to price today, and what's coming next week. $79.99/month, 30-day free pilot.">
-  <meta property="og:title" content="NightDesk RIS: revenue intelligence for independent hotels">
-  <meta property="og:description" content="Your hotel. Every morning. A revenue brief built from your data, before the front desk opens.">
+  <meta name="description" content="NightDesk RIS is a revenue intelligence system for independent hotels: a morning brief with what happened, what to price today, and what&#39;s coming next.">
+  <meta property="og:title" content="NightDesk: Your hotel. Every morning.">
+  <meta property="og:description" content="NightDesk RIS is a revenue intelligence system for independent hotels: a morning brief with what happened, what to price today, and what&#39;s coming next.">
   <meta property="og:url" content="https://nightdesk.cc">
   <meta name="theme-color" content="#0B1E33">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,7 +114,7 @@
       padding: 24px; max-width: 540px; width: 100%; justify-self: end;
     }
     .sample-tag {
-      position: absolute; top: -12px; left: 24px;
+      position: absolute; top: -12px; right: 24px;
       font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
       background: var(--slate); color: #fff; border: 1px solid rgba(255,255,255,0.2);
       border-radius: 999px; padding: 4px 10px;
@@ -137,6 +137,7 @@
     .bars { display: flex; align-items: flex-end; gap: 4px; height: 34px; }
     .bars span { width: 6px; border-radius: 2px; background: var(--blue); opacity: .85; }
     .bars span.f { opacity: .35; }
+    .brief-foot { font-size: 11px; color: var(--ink-3); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
 
     /* ---------- Light sections ---------- */
     .light { background: var(--paper); color: var(--ink); }
@@ -152,14 +153,6 @@
     .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.2px; }
     .step p { font-size: 15px; color: var(--ink-2); line-height: 1.6; }
 
-    .ris { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
-    .ris-table { width: 100%; border-collapse: collapse; font-size: 15px; background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
-    .ris-table th, .ris-table td { text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line); }
-    .ris-table th { font-size: 12px; font-weight: 600; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; background: var(--paper); }
-    .ris-table tr:last-child td { border-bottom: none; }
-    .ris-table td:first-child { color: var(--ink-2); }
-    .yes { color: var(--green); font-weight: 600; }
-    .no { color: var(--ink-3); }
 
     /* ---------- Pricing ---------- */
     .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -178,13 +171,13 @@
 
     /* ---------- Pilot form ---------- */
     .input-row { display: flex; gap: 8px; }
-    input[type="email"] {
+    input[type="email"], input[type="text"] {
       flex: 1; min-width: 0; font-family: inherit; font-size: 15px; color: #fff;
       background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18);
       border-radius: 10px; padding: 13px 14px; outline: none;
     }
-    input[type="email"]::placeholder { color: rgba(255,255,255,0.35); }
-    input[type="email"]:focus { border-color: var(--blue); }
+    input[type="email"]::placeholder, input[type="text"]::placeholder { color: rgba(255,255,255,0.35); }
+    input[type="email"]:focus, input[type="text"]:focus { border-color: var(--blue); }
     .btn:disabled { opacity: .6; cursor: not-allowed; }
     .checkbox-row { display: flex; gap: 9px; align-items: center; margin-top: 12px; font-size: 13px; color: var(--text-3); cursor: pointer; }
     .checkbox-row input { accent-color: var(--blue); }
@@ -194,6 +187,29 @@
     .success-title { font-size: 15px; font-weight: 600; color: var(--green-soft); margin-bottom: 4px; }
     .success-sub { font-size: 13px; color: var(--text-2); }
 
+    .step-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+    .price-wrap { max-width: 480px; }
+    .price-card .btn { width: 100%; }
+    .pilot { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+    .pilot .sec-lede { color: var(--text-2); }
+    .pilot-who { font-size: 14px; color: var(--text-3); margin-top: 16px; }
+    .pilot-card { background: var(--slate); border: 1px solid var(--border); border-radius: 18px; padding: 32px; scroll-margin-top: 80px; }
+    .field-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-2); margin-bottom: 8px; }
+    .field-label .opt { font-weight: 400; color: var(--text-3); }
+    .field { margin-bottom: 16px; }
+    .pilot-card input[type="text"] { width: 100%; }
+    .pilot-card .btn { width: 100%; }
+    .founder-line { font-size: 15px; color: var(--text-2); margin-top: 24px; font-style: italic; }
+    .faq { max-width: 760px; }
+    .faq details { border-top: 1px solid var(--line); padding: 18px 0; }
+    .faq details:last-child { border-bottom: 1px solid var(--line); }
+    .faq summary { font-size: 17px; font-weight: 600; cursor: pointer; list-style-position: outside; }
+    .faq details p { font-size: 15px; color: var(--ink-2); line-height: 1.6; margin-top: 10px; }
+    .cta-band { text-align: center; padding: 88px 0; }
+    .cta-band h2 { margin-bottom: 24px; }
+    .foot-brand { display: flex; flex-direction: column; gap: 4px; }
+    .foot-brand .wordmark { font-size: 16px; }
+    .foot-links { flex-wrap: wrap; justify-content: center; }
     .founder { max-width: 760px; margin: 0 auto; text-align: center; }
     .founder blockquote { font-size: 26px; font-weight: 500; letter-spacing: -0.5px; line-height: 1.4; color: var(--ink); }
     .founder p { margin-top: 16px; font-size: 15px; color: var(--ink-2); }
@@ -210,7 +226,7 @@
       .hero-grid { grid-template-columns: 1fr; gap: 48px; padding-top: 64px; padding-bottom: 80px; }
       .brief { justify-self: start; }
       h1 { font-size: 52px; }
-      .ris, .pricing { grid-template-columns: 1fr; gap: 40px; }
+      .pilot { grid-template-columns: 1fr; gap: 40px; }
     }
     @media (max-width: 720px) {
       .wrap { padding: 0 16px; }
@@ -232,7 +248,8 @@
       h2 { font-size: 30px; letter-spacing: -0.8px; }
       .sec-lede { font-size: 16px; }
       .steps { grid-template-columns: 1fr; margin-top: 32px; }
-      .ris-table th, .ris-table td { padding: 12px; font-size: 14px; }
+      .pilot-card { padding: 24px 16px; }
+      .cta-band { padding: 64px 0; }
       .price-card { padding: 28px 20px; }
       .price { font-size: 46px; }
       .input-row { flex-direction: column; }
@@ -257,8 +274,9 @@
         <span class="wordmark">NightDesk</span>
       </a>
       <div class="nav-links">
-        <a href="#how" class="hide-sm">Product</a>
+        <a href="#how" class="hide-sm">How it works</a>
         <a href="#pricing" class="hide-sm">Pricing</a>
+        <a href="#faq" class="hide-sm">FAQ</a>
         <a href="https://app.nightdesk.cc/sign-in">Sign in</a>
         <a href="#pilot" class="nav-cta">Start free pilot</a>
       </div>
@@ -269,8 +287,7 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <!-- COPY: pending copywriter -->
-          <p class="eyebrow"><span class="dot"></span>NightDesk RIS: revenue intelligence system</p>
+          <p class="eyebrow"><span class="dot"></span>NightDesk RIS: revenue intelligence system for independent hotels</p>
           <h1>Your hotel.<br>Every morning.</h1>
           <p class="lede">NightDesk turns your hotel data into a morning revenue brief: what happened, what to price today, and what's coming next week.</p>
           <div class="cta-row">
@@ -284,7 +301,7 @@
           </ul>
         </div>
 
-        <article class="brief" aria-label="Sample morning brief (sample data)">
+        <article class="brief" role="img" aria-label="Sample NightDesk morning brief for a fictional hotel, showing occupancy, average rate, revenue per room, revenue, and three items to review.">
           <span class="sample-tag">Sample data</span>
           <div class="brief-head">
             <div>
@@ -302,119 +319,121 @@
           <p class="things-h">3 things to know</p>
           <div class="thing">
             <span class="thing-n">01</span>
-            <div><p class="thing-t">Friday demand is accelerating</p><p class="thing-d">Pickup is 31% above your historical pace. Suggested rate: $189.</p></div>
+            <div><p class="thing-t">Friday demand is picking up.</p><p class="thing-d">Pickup is 31% above your usual Friday pace. Suggested rate: $189.</p></div>
             <span class="thing-a">Review &rarr;</span>
           </div>
           <div class="thing">
             <span class="thing-n">02</span>
-            <div><p class="thing-t">Saturday is pacing behind</p><p class="thing-d">22 rooms remaining with weaker-than-normal pickup. Suggested action: monitor.</p></div>
+            <div><p class="thing-t">Saturday is pacing behind.</p><p class="thing-d">22 rooms still open, with slower pickup than a normal Saturday. Suggested action: watch it.</p></div>
             <span class="thing-a">Review &rarr;</span>
           </div>
           <div class="thing">
             <span class="thing-n">03</span>
-            <div><p class="thing-t">Next 7 days</p><p class="thing-d">Occupancy and pickup trending higher.</p></div>
+            <div><p class="thing-t">Next 7 days.</p><p class="thing-d">Occupancy and pickup are trending up.</p><span class="thing-a">View &rarr;</span></div>
             <div class="bars" aria-hidden="true"><span style="height:40%"></span><span style="height:55%"></span><span style="height:85%"></span><span style="height:95%"></span><span style="height:70%"></span><span class="f" style="height:60%"></span><span class="f" style="height:58%"></span></div>
           </div>
+          <p class="brief-foot">Fictional hotel and numbers, for illustration.</p>
         </article>
       </div>
     </section>
 
     <section id="how" class="block light">
       <div class="wrap">
-        <!-- COPY: pending copywriter -->
-        <p class="kicker">How it works</p>
-        <h2>Your numbers and what to do about them.</h2>
-        <p class="sec-lede">NightDesk reads the data you already have and sends one short brief before the front desk opens. No new system to learn.</p>
+        <h2>How it works</h2>
+        <p class="sec-lede">Three steps. Nothing to switch, nothing to install.</p>
         <div class="steps">
-          <div class="step"><div class="step-n">1</div><h3>Connect your data</h3><p>Works with your booking system. We set it up with you during the pilot.</p></div>
-          <div class="step"><div class="step-n">2</div><h3>Get the morning brief</h3><p>Every day by 7am: last night's results, today's pricing calls, and what's coming next week.</p></div>
-          <div class="step"><div class="step-n">3</div><h3>You decide</h3><p>Every suggestion shows its reasons. You change your rates; NightDesk never does it for you.</p></div>
+          <div class="step"><div class="step-n">1</div><span class="step-tag">Visibility</span><h3>Send us an export</h3><p>Export a reservations report from the booking system you already use and upload it. During the pilot, we set it up with you.</p></div>
+          <div class="step"><div class="step-n">2</div><span class="step-tag">Momentum</span><h3>Read your morning brief</h3><p>Each morning you get what happened, what to price today, and what's coming next week, with the reason behind each suggestion.</p></div>
+          <div class="step"><div class="step-n">3</div><span class="step-tag">Control</span><h3>You make the call</h3><p>NightDesk suggests. It never changes your rates. Whoever sets your rates decides, and updates prices where they always do.</p></div>
         </div>
-      </div>
-    </section>
-
-    <section class="block white">
-      <div class="wrap ris">
-        <div>
-          <!-- COPY: pending copywriter -->
-          <p class="kicker">What is a RIS?</p>
-          <h2>A revenue intelligence system, not a black box.</h2>
-          <p class="sec-lede">An RIS sits on top of your booking system. It tells you what's happening and what to consider. It doesn't set or push your rates. You stay in control of every price.</p>
-        </div>
-        <table class="ris-table">
-          <thead><tr><th scope="col">What you get</th><th scope="col">NightDesk RIS</th></tr></thead>
-          <tbody>
-            <tr><td>Morning revenue brief</td><td class="yes">Every day</td></tr>
-            <tr><td>Pace and pickup vs. normal</td><td class="yes">Included</td></tr>
-            <tr><td>Rate suggestions with reasons</td><td class="yes">Included</td></tr>
-            <tr><td>Changes your rates automatically</td><td class="no">No, you decide</td></tr>
-            <tr><td>Price</td><td>$79.99/month</td></tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
     <section id="pricing" class="block light">
-      <div class="wrap pricing">
-        <div>
-          <!-- COPY: pending copywriter -->
-          <p class="kicker">Pricing</p>
-          <h2>One price. Start with a 30-day pilot.</h2>
-          <p class="sec-lede">Try NightDesk on your own hotel for 30 days, free. Setup is included.</p>
-          <ul class="pilot-pts">
-            <li><span class="step-n">1</span><div><b>Request your pilot</b><span>Leave your email. You'll hear from us within 24 hours.</span></div></li>
-            <li><span class="step-n">2</span><div><b>We set it up with you</b><span>We connect your data and walk through your first brief together.</span></div></li>
-            <li><span class="step-n">3</span><div><b>30 days of briefs</b><span>Keep it at $79.99/month if it earns its place. No charge during the pilot.</span></div></li>
-          </ul>
-        </div>
-
-        <div id="pilot" class="price-card">
-          <p class="price-name">NightDesk, per property</p>
-          <p class="price">$79.99<small> / month</small></p>
-          <p class="price-note">30 days free. Setup included.</p>
+      <div class="wrap">
+        <h2>One plan. One price.</h2>
+        <div class="price-card price-wrap" style="margin-top:32px">
+          <p class="price">$79.99<small> /month</small></p>
+          <p class="price-note">Per property. Setup included.</p>
           <ul class="price-list">
-            <li><span aria-hidden="true">&check;</span>Daily morning revenue brief</li>
-            <li><span aria-hidden="true">&check;</span>Pace, pickup and 7-day forecast</li>
-            <li><span aria-hidden="true">&check;</span>Rate suggestions with the reasons behind them</li>
-            <li><span aria-hidden="true">&check;</span>Every feature we ship</li>
+            <li><span aria-hidden="true">&check;</span>The daily morning revenue brief</li>
+            <li><span aria-hidden="true">&check;</span>Your dashboard: pricing, forecast, and reports</li>
+            <li><span aria-hidden="true">&check;</span>Suggested rates with the reasons behind them</li>
+            <li><span aria-hidden="true">&check;</span>Setup of your first import, done with you</li>
           </ul>
-
-          <div class="pilot-form">
-            <div id="form-container">
-              <label for="email-input" class="price-name" style="display:block;margin-bottom:8px">Start your free pilot</label>
-              <div class="input-row">
-                <input type="email" id="email-input" placeholder="you@yourhotel.com" autocomplete="email" required>
-                <button type="button" class="btn btn-primary" id="submit-btn">Start free pilot</button>
-              </div>
-              <p class="form-error" id="form-error" role="alert">Something went wrong. Please try again.</p>
-              <label class="checkbox-row">
-                <input type="checkbox" id="newsletter-check">
-                <span>Also subscribe to The Night Shift, biweekly hospitality news</span>
-              </label>
-              <p class="small-print">No credit card required.</p>
-            </div>
-            <div class="success-state" id="success-state" role="status">
-              <p class="success-title">You're on the list.</p>
-              <p class="success-sub">You'll get a personal email within 24 hours.</p>
-            </div>
-          </div>
+          <p class="price-note">Start with the 30-day free pilot. No card needed to start.</p>
+          <a href="#pilot" class="btn btn-primary">Start free pilot</a>
         </div>
       </div>
     </section>
 
-    <section class="block white">
-      <div class="wrap founder">
-        <!-- COPY: pending copywriter -->
-        <blockquote>&ldquo;Built by a former night auditor who got tired of flying blind.&rdquo;</blockquote>
-        <p>For independent hotels, inns and motels that want clear numbers without handing pricing to a black box.</p>
+    <section id="pilot" class="block">
+      <div class="wrap pilot">
+        <div>
+          <h2>Try it free for 30 days</h2>
+          <p class="sec-lede">We're opening NightDesk to a small group of independent hotels for a 30-day pilot. Your 30 days start the day your first import is live, and there's no card up front. We set up your import with you, check in at day 14 and day 30 (15 minutes each), and you keep full control of your pricing the whole time.</p>
+          <p class="pilot-who">Independent hotels and inns, roughly 15 to 60 rooms.</p>
+        </div>
+
+        <div class="pilot-card">
+          <form id="form-container" novalidate>
+            <div class="field">
+              <label for="email-input" class="field-label">Work email</label>
+              <input type="email" id="email-input" placeholder="you@yourhotel.com" autocomplete="email" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-btn">Request a pilot</button>
+            <p class="form-error" id="form-error" role="alert"></p>
+            <p class="small-print">We'll reply personally. No card needed.</p>
+          </form>
+          <div class="success-state" id="success-state" role="status">
+            <p class="success-title">Thanks. We'll be in touch personally to set up your pilot.</p>
+          </div>
+          <p class="founder-line">Built by a former night auditor who got tired of flying blind.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="block white">
+      <div class="wrap faq">
+        <h2>Questions</h2>
+        <details>
+          <summary>Do I need to switch systems?</summary>
+          <p>No. NightDesk works from a reservations export from the booking system you already use. You keep using your system the way you do today.</p>
+        </details>
+        <details>
+          <summary>Will NightDesk change my rates?</summary>
+          <p>No. NightDesk suggests a rate and shows why. You decide, and you change prices where you always do.</p>
+        </details>
+        <details>
+          <summary>What does the pilot cost?</summary>
+          <p>Nothing for 30 days, counted from the day your first import is live. No card up front. After that it's $79.99/month.</p>
+        </details>
+        <details>
+          <summary>Who sets it up?</summary>
+          <p>We do it with you during the pilot. You send the export; we handle the import.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Your hotel. Every morning.</h2>
+        <a href="#pilot" class="btn btn-primary">Start free pilot</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="wrap foot">
-      <span>&copy; 2026 NightDesk</span>
+      <div class="foot-brand">
+        <span class="wordmark">NightDesk</span>
+        <span>NightDesk RIS: revenue intelligence for independent hotels</span>
+        <span>&copy; 2026 NightDesk</span>
+      </div>
       <div class="foot-links">
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://app.nightdesk.cc/sign-in">Sign in</a>
         <a href="https://app.nightdesk.cc/terms">Terms</a>
         <a href="https://app.nightdesk.cc/privacy">Privacy</a>
         <a href="mailto:support@nightdesk.cc">Support</a>
@@ -424,40 +443,47 @@
 
   <script>
     (function () {
+      var form = document.getElementById('form-container');
       var input = document.getElementById('email-input');
       var btn = document.getElementById('submit-btn');
       var err = document.getElementById('form-error');
-      var label = 'Start free pilot';
+      var label = 'Request a pilot';
 
-      async function handleSubmit() {
+      function showError(msg) { err.textContent = msg; err.style.display = 'block'; }
+
+      async function handleSubmit(e) {
+        e.preventDefault();
         var email = input.value.trim();
-        var newsletter = document.getElementById('newsletter-check').checked;
         err.style.display = 'none';
-        if (!email || email.indexOf('@') < 1) { input.focus(); return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showError('Please enter a valid email address.');
+          input.focus();
+          return;
+        }
 
-        btn.textContent = 'Submitting...';
+        btn.textContent = 'Sending...';
         btn.disabled = true;
         try {
+          var payload = { email: email, newsletter: false };
           var res = await fetch('https://app.nightdesk.cc/api/waitlist', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email: email, newsletter: newsletter })
+            body: JSON.stringify(payload)
           });
           if (res.ok || res.status === 409) {
-            document.getElementById('form-container').style.display = 'none';
+            form.style.display = 'none';
             document.getElementById('success-state').style.display = 'block';
             return;
           }
-          err.style.display = 'block';
-        } catch (e) {
-          err.style.display = 'block';
+          showError('Something went wrong. Please try again, or email us at support@nightdesk.cc.');
+        } catch (e2) {
+          showError('Something went wrong. Please try again, or email us at support@nightdesk.cc.');
         }
         btn.textContent = label;
         btn.disabled = false;
       }
 
-      btn.addEventListener('click', handleSubmit);
-      input.addEventListener('keydown', function (e) { if (e.key === 'Enter') handleSubmit(); });
+      form.addEventListener('submit', handleSubmit);
     })();
   </script>
 </body>
